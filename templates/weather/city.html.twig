@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{# @var place \App\Entity\Place #}
+{# @var measurements \App\Entity\Measurement[] #}
+
+
+{% block title %}Weather in {{ place.city }}, {{ place.country }}{% endblock %}
+
+
+{% block body %}
+    <main>
+        <h1>Weather in {{ place.city }}, {{ place.country }}</h1>
+
+
+        <ul>
+            {% for measurement in measurements %}
+                <li>{{ measurement.Date|date('d.m.Y') }}: {{ measurement.Temperature }}&deg;C, Wind: {{ measurement.Wind }}km/h, Cloudiness: {{ measurement.Cloudiness }}, Precipitation: {{ measurement.Precipitation }}%</li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}
