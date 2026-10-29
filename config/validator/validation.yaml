@@ -1,0 +1,64 @@
+App\Entity\Place:
+    properties:
+        Country:
+            - NotBlank:
+                message: 'This field can not be empty.'
+            - Choice:
+                choices: ['FR', 'IT', 'ES', 'DE', 'PL', 'EN', 'GB']
+                message: 'Choose correct country.'
+        City:
+            - NotBlank:
+                message: 'This field can not be empty.'
+            - Length:
+                max: 255
+                maxMessage: 'City name can not be longer than {{ limit }} characters.'
+        Latitude:
+            - NotBlank:
+                message: 'This field can not be empty.'
+            - Range:
+                min: -90
+                max: 90
+                notInRangeMessage: 'This field can not be shorter than {{ min }} and longer than {{ max }}.'
+        Longitude:
+            - NotBlank:
+                message: 'This field can not be empty.'
+            - Range:
+                min: -90
+                max: 90
+                notInRangeMessage: 'This field can not be shorter than {{ min }} and longer than {{ max }}.'
+
+App\Entity\Measurement:
+    properties:
+        place:
+            - NotNull:
+                message: 'This field can not be empty.'
+        Date:
+            - NotNull:
+                message: 'This field can not be empty.'
+        Temperature:
+            - NotNull:
+                message: 'This field can not be empty.'
+            - Range:
+                min: -100
+                max: 70
+                notInRangeMessage: 'This field can not be shorter than {{ min }} and longer than {{ max }}.'
+        Wind:
+            - NotNull:
+                message: 'This field can not be empty.'
+            - Range:
+                min: 0
+                max: 500
+                notInRangeMessage: 'This field can not be shorter than {{ min }} and longer than {{ max }}.'
+        Cloudiness:
+            - NotBlank:
+                message: 'This field can not be empty.'
+            - Length:
+                max: 255
+                maxMessage: 'This field can not be longer than {{ max }} characters.'
+        Precipitation:
+            - NotNull:
+                message: 'This field can not be empty.'
+            - Range:
+                min: 0
+                max: 100
+                notInRangeMessage: 'This field can not be shorter than {{ min }} and longer than {{ max }}.'
