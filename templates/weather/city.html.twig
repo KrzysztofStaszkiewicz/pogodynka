@@ -15,6 +15,8 @@
         <ul>
             {% for measurement in measurements %}
                 <li>{{ measurement.Date|date('d.m.Y') }}: {{ measurement.Temperature }}&deg;C, Wind: {{ measurement.Wind }}km/h, Cloudiness: {{ measurement.Cloudiness }}, Precipitation: {{ measurement.Precipitation }}%</li>
+            {% else %}
+                <li>No forecast measurements are available for this location.</li>
             {% endfor %}
         </ul>
     </main>

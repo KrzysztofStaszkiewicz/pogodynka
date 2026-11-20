@@ -45,7 +45,7 @@ security:
         ROLE_MODERATOR:
             - ROLE_USER
             - ROLE_PLACE_NEW
-            - ROLE_PLACE_NEW
+            - ROLE_MEASUREMENT_NEW
         ROLE_USER:
             - ROLE_PLACE_INDEX
             - ROLE_MEASUREMENT_INDEX
