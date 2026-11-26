@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Text form{% endblock %}
+
+{% block body %}
+
+    <h1>Text form</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.text) }}
+
+    {{ form_row(form.submit) }}
+
+    {{ form_end(form) }}
+
+    {% if text is not null %}
+        <h2>Received text:</h2>
+        <p>{{ text }}</p>
+        <p>{{ text|raw }}</p>
+    {% endif %}
+
+{% endblock %}
